@@ -1,41 +1,23 @@
-import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { Home } from './components/pages/Home/Home';
+import { helpOptions } from './components/pages/sections/helpOptions';
 
 function App() {
+  const [selection, setSelection] = useState(helpOptions[0].option.slug);
+  const handleSelection = event => setSelection(event.target.value);
+  const [events, setEvents] = useState();
+
+  useEffect(() => {
+    axios
+      .get(
+        'http://localhost:8080/https://nightsky.jpl.nasa.gov/js/data/events_json_api.cfm?&Club_ID=877&IncludeRN=0'
+      )
+      .then(response => setEvents(response.data.events));
+  }, []);
+
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
+    <Home selection={selection} isSelected={handleSelection} events={events} />
   );
 }
 
