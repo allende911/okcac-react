@@ -34,10 +34,8 @@ export const WhatWeDo = () => {
       id="about"
       color="white"
       minH="80vh"
-      borderBottom="4px"
-      borderColor="blue.600"
     >
-      <Heading size="lg" mt="8">
+      <Heading size="2xl" mt="8">
         Our mission.
       </Heading>
 

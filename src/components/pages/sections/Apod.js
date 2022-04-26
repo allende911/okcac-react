@@ -70,7 +70,7 @@ export const Apod = () => {
               mx={[1, 2, 4]}
               textAlign="left"
               minH="25vh"
-              w={['full', 1 / 2, 1 / 4]}
+              w={['full', 'full', '60%']}
               lineHeight="taller"
               noOfLines="6"
               textShadow="1px 1px 2px black"

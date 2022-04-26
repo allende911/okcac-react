@@ -11,9 +11,9 @@ export const Hero = props => {
         <Heading {...heroHeader}>Explore the night sky with us.</Heading>
         <Text {...heroText}>
           The Oklahoma City Astronomy Club has been helping metro area residents
-          observe the mysteries that our night sky has to offer. We use
-          telescopes, binoculars, computers, cameras, and our own two eyes to
-          observe and deepen our understanding of our universe.
+          observe the mysteries that our night sky has to offer since 1958. We
+          use telescopes, binoculars, computers, cameras, and our own two eyes
+          to observe and deepen our understanding of our universe.
         </Text>
         <GetHelp />
         <Icon as={FaAngleDown} w={8} h={8} color="white" />
