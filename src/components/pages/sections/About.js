@@ -1,7 +1,7 @@
 import React from 'react';
-import { Flex, Heading } from '@chakra-ui/react';
+import { Box, Flex, Heading } from '@chakra-ui/react';
 import * as icon from 'react-icons/fa';
-import { Card } from '../../Card';
+import { Card } from '../../utils/Card';
 
 const cards = [
   {
@@ -24,7 +24,7 @@ const cards = [
   },
 ];
 
-export const WhatWeDo = () => {
+export const About = () => {
   return (
     <Flex
       flexDirection="column"
@@ -46,14 +46,9 @@ export const WhatWeDo = () => {
         align="center"
       >
         {cards.map((card, index) => (
-          <>
-            <Card
-              key={index}
-              heading={card.heading}
-              icon={card.icon}
-              text={card.text}
-            />
-          </>
+          <Box key={index}>
+            <Card heading={card.heading} icon={card.icon} text={card.text} />
+          </Box>
         ))}
       </Flex>
     </Flex>

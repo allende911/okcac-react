@@ -2,7 +2,12 @@ import React from 'react';
 import { Box, Button, Flex, Image } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 
-const tempButtons = ['About', 'Contact', 'Events', 'Forum'];
+const tempButtons = [
+  { name: 'About', linkTo: '' },
+  { name: 'Contact', linkTo: '' },
+  { name: 'Events', linkTo: '' },
+  { name: 'Forum', linkTo: 'http://okcastroclub.com/phpBB2/index.php' },
+];
 
 export const Nav = () => {
   return (
@@ -17,18 +22,19 @@ export const Nav = () => {
         <Image src="./logo.png" w="225px" />
         <Flex justify="flex-end" w="full">
           {tempButtons.map((buttons, index) => (
-            <Button
-              color="gray.50"
-              _hover={{ color: 'yellow' }}
-              variant="link"
-              fontWeight="normal"
-              size="sm"
-              mx={4}
-              display={['none', 'none', 'flex']}
-              key={index}
-            >
-              {buttons}
-            </Button>
+            <a href={buttons.linkTo} key={index}>
+              <Button
+                color="gray.50"
+                _hover={{ color: 'yellow' }}
+                variant="link"
+                fontWeight="normal"
+                size="sm"
+                mx={4}
+                display={['none', 'none', 'flex']}
+              >
+                {buttons.name}
+              </Button>
+            </a>
           ))}
           <HamburgerIcon
             display={['flex', 'flex', 'none']}

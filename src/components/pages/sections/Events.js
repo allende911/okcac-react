@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Flex, Grid, GridItem, Heading, Image, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Image,
+  Text,
+} from '@chakra-ui/react';
 
 export const Events = () => {
   const [events, setEvents] = useState();
@@ -74,23 +82,31 @@ export const Events = () => {
         >
           {events
             .filter(local => local.address_state === 'OK')
-            .map(event => (
-              <>
+            .map((event, index) => (
+              <Box key={index}>
                 <GridItem width="250px" minH="10em">
                   {eventImages
-                    .filter(image => image.eventName == event.title)
-                    .map(meta => (
-                      <Image src={meta.photo} alt={meta.alt} width="250px" />
+                    .filter(image => image.eventName === event.title)
+                    .map((meta, index) => (
+                      <Image
+                        src={meta.photo}
+                        alt={meta.alt}
+                        width="250px"
+                        key={index}
+                      />
                     ))}
                 </GridItem>
                 <GridItem w="full">
                   <Heading size="sm">{event.title}</Heading>
+                  <Text fontWeight="bold">
+                    {handleDates(event.start_dates)}
+                  </Text>
 
                   <Text noOfLines={4} lineHeight="tall">
                     {event.description}
                   </Text>
                 </GridItem>
-              </>
+              </Box>
             ))}
         </Grid>
       </Flex>

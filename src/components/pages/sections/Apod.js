@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Box, Button, Flex, Heading, Icon, Text } from '@chakra-ui/react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
 export const Apod = () => {
   const [apod, setApod] = useState();
@@ -77,7 +76,11 @@ export const Apod = () => {
             >
               {apod.data.explanation}
             </Text>
-            <a href="https://apod.nasa.gov/apod/" target="_blank">
+            <a
+              href="https://apod.nasa.gov/apod/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Button colorScheme="blue" m={4}>
                 See more
               </Button>

@@ -7,7 +7,7 @@ import { FaAngleDown } from 'react-icons/fa';
 export const Hero = props => {
   return (
     <Box as="section" id="hero">
-      <VStack {...heroStack} spacing={12}>
+      <VStack {...heroStack} spacing={12} mt="-8">
         <Heading {...heroHeader}>Explore the night sky with us.</Heading>
         <Text {...heroText}>
           The Oklahoma City Astronomy Club has been helping metro area residents

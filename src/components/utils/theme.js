@@ -2,13 +2,15 @@ import { extendTheme } from '@chakra-ui/react';
 
 export const theme = extendTheme({
   fonts: {
-    body: 'Lato, Helvetica, sans-serif',
-    heading: 'Lexend Deca, Helvetica, sans-serif',
+    body: 'Inter, Helvitca, sans-serif',
+    heading: 'Inter, Helvetica, sans-serif',
   },
   fontWeights: {
     thin: '100',
+    light: '300',
     regular: '400',
-    bold: '600',
+    semibold: '600',
+    bold: '800',
     black: '900',
   },
   colors: {

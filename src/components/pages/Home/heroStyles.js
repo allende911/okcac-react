@@ -13,6 +13,7 @@ export const heroHeader = {
 };
 
 export const heroText = {
+  fontWeight: 'normal',
   width: ['full', 'full', 'half', 'half'],
   lineHeight: '8',
 };
@@ -21,5 +22,12 @@ export const heroBox = {
   maxH: '100vh',
   background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('./04.jpg')`,
+  backgroundSize: 'cover',
+};
+
+export const registrationBox = {
+  maxH: '100vh',
+  background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+    url('./02.jpg')`,
   backgroundSize: 'cover',
 };

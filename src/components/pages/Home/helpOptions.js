@@ -1,5 +1,5 @@
 export const helpOptions = [
-  { key: 1, option: { label: 'Join the Club', slug: 'join-the-club' } },
+  { key: 1, option: { label: 'Join the Club', slug: 'join' } },
   {
     key: 2,
     option: { label: 'Read Our Telescope Guide', slug: 'telescope-guide' },

@@ -1,4 +1,4 @@
-export const homeContainer = {
+export const pageContainer = {
   minW: 'full',
   m: '0',
   p: '0',
