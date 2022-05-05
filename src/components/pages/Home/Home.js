@@ -2,7 +2,6 @@ import React from 'react';
 import { Hero } from '../sections/Hero';
 import { About } from '../sections/About';
 import { Apod } from '../sections/Apod';
-import { Events } from '../sections/Events';
 import { More } from '../../utils/More';
 import { GetHelp } from './GetHelp';
 import { Page } from '../../utils/Page';
@@ -21,7 +20,6 @@ export const Home = props => {
         <More paddingTop="10em" />
       </Hero>
       <About />
-      {/* <Events /> */}
       <Apod />
     </Page>
   );

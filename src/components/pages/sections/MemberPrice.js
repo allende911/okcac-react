@@ -1,6 +1,3 @@
-import React from 'react';
-import { getMonth } from './getDate';
-
 export const MemberPrice = () => {
   const price = 36;
   const d = new Date();

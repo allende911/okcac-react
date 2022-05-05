@@ -1,7 +1,6 @@
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Button } from '@chakra-ui/react';
-import { Comember } from '../registration/forms/Comember';
 
 const current = new Date();
 const prices = {
