@@ -6,7 +6,7 @@ import { cards } from './successCards';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import axios from 'axios';
 
-const baseUrl = process.env.REACT_APP_STRAPI_BASE_URL;
+const baseUrl = process.env.STRAPI_URL;
 
 export const Success = props => {
   useEffect(() => {
