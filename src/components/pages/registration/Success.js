@@ -6,13 +6,12 @@ import { cards } from './successCards';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import axios from 'axios';
 
+const baseUrl = process.env.REACT_APP_STRAPI_BASE_URL;
+
 export const Success = props => {
   useEffect(() => {
     axios
-      .post(
-        'http://localhost:1337/api/members',
-        JSON.parse(localStorage.getItem('data'))
-      )
+      .post(`${baseUrl}/api/members`, JSON.parse(localStorage.getItem('data')))
       .then(response => {
         if (!response.error) {
           localStorage.clear('data');
