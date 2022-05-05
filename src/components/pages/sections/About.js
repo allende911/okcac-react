@@ -6,7 +6,12 @@ import { Segment } from '../sections/Segment';
 
 export const About = props => {
   return (
-    <Segment heading={'Our mission.'} id="about" as="section">
+    <Segment
+      heading={'Our mission.'}
+      id="about"
+      className="postTop"
+      as="section"
+    >
       <Flex
         flexDirection={{ md: 'row', lg: 'row' }}
         flexWrap="wrap"

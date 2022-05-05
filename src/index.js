@@ -18,7 +18,7 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-  <ChakraProvider theme={theme}>
+  <ChakraProvider theme={theme} resetCSS>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />

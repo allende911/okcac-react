@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Icon, Text, VStack } from '@chakra-ui/react';
 import { FaChevronDown } from 'react-icons/fa';
+import { Link } from 'react-scroll';
 
 export const More = ({ icon, text, ...props }) => {
   return (
@@ -14,7 +15,9 @@ export const More = ({ icon, text, ...props }) => {
         >
           {text}
         </Text>
-        <Icon as={FaChevronDown} w={20} h={20} />
+        <Link to="postTop" spy={true} smooth={true} offset={-70} duration={500}>
+          <Icon as={FaChevronDown} w={20} h={20} />
+        </Link>
 
         {props.children}
       </VStack>

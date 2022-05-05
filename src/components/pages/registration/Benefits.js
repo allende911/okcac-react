@@ -6,7 +6,12 @@ import { Segment } from '../sections/Segment';
 
 export const Benefits = props => {
   return (
-    <Segment heading={'Your membership.'} id="benefits" as="section">
+    <Segment
+      heading={'Your membership.'}
+      id="benefits"
+      className="postTop"
+      as="section"
+    >
       <Flex
         flexDirection={{ md: 'row', lg: 'row' }}
         flexWrap="wrap"

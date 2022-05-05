@@ -19,10 +19,6 @@ export const Card = ({ date, icon, index, heading, link, text }) => {
         minW="10em"
         m={[1, 2, 4]}
         borderRadius="md"
-        _hover={{
-          border: '1px',
-          borderColor: 'yellow.100',
-        }}
       >
         <LinkOverlay href={link}>
           <Icon
