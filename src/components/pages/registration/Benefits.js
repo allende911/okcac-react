@@ -1,17 +1,17 @@
 import React from 'react';
 import { Card } from '../../utils/Card';
 import { Box, Flex } from '@chakra-ui/react';
-import { cards } from './aboutCards';
+import { cards } from './benefitsList';
 import { Segment } from '../sections/Segment';
 
-export const About = props => {
+export const Benefits = props => {
   return (
-    <Segment heading={'Our mission.'} id="about" as="section">
+    <Segment heading={'Your membership.'} id="benefits" as="section">
       <Flex
         flexDirection={{ md: 'row', lg: 'row' }}
         flexWrap="wrap"
         justifyContent="space-around"
-        alignSelf="stretch"
+        alignItems="stretch"
       >
         {cards.map((card, index) => (
           <Box key={index} maxW={{ base: 'full', md: '30%' }}>

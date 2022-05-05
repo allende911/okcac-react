@@ -12,6 +12,7 @@ import '@fontsource/inter/600.css';
 import '@fontsource/inter/800.css';
 import '@fontsource/inter/900.css';
 import { Registration } from './components/pages/registration/Registration';
+import { Success } from './components/pages/registration/Success';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -21,7 +22,16 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/join" element={<Registration />} />
+        <Route path="join" element={<Registration />} />
+        <Route path="success" element={<Success />} />
+        <Route
+          path="*"
+          element={
+            <>
+              <h1>Not found</h1>
+            </>
+          }
+        />
       </Routes>
     </BrowserRouter>
   </ChakraProvider>

@@ -4,14 +4,16 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  CloseButton,
 } from '@chakra-ui/react';
 
-export const AlertMessage = ({ description, status, title }) => {
+export const AlertMessage = ({ description, status, title, setOpen }) => {
   return (
     <Alert status={status}>
       <AlertIcon />
       <AlertTitle>{title}</AlertTitle>
       <AlertDescription>{description}</AlertDescription>
+      <CloseButton marginLeft="auto" onClick={() => setOpen(false)} />
     </Alert>
   );
 };

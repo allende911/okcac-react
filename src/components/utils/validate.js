@@ -1,55 +1,32 @@
-export const firstName = value => {
-  let error;
-  if (!value) {
-    error = 'Required';
-  } else if (value.length > 15) {
-    error = 'Must be 15 characters or less';
-  } else if (value.length < 2) {
-    error = 'Must be greater than 2 characters';
-  } else if (!/^[A-Z]'?[- a-zA-Z]+$/i.test(value)) {
-    error = 'Cannot contain non-standard characters!';
-  }
-  return error;
-};
+import * as Yup from 'yup';
 
-export const lastName = value => {
-  let error;
-  if (!value) {
-    error = 'Required';
-  } else if (value.length > 20) {
-    error = 'Must be 20 characters or less';
-  } else if (value.length < 2) {
-    error = 'Must be greater than 2 characters';
-  } else if (!/^[A-Z]'?[- a-zA-Z]+$/i.test(value)) {
-    error = 'Cannot contain non-standard characters!';
-  }
-  return error;
-};
+// const phoneRegEx = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/i;
+export const Validate = Yup.object().shape({
+  firstName: Yup.string()
+    .min(2, 'Too few characters.')
+    .max(12, 'Too many characters.')
+    .matches(/^[A-Za-z/s.'-]+$/, 'No special characters or white space.')
+    .required('Name required to continue.'),
+  lastName: Yup.string()
+    .min(2, 'Too few characters.')
+    .max(20, 'Too many characters.')
+    .matches(/^[A-Za-z/s.'-]+$/, 'No special characters or white space.')
+    .required('Name required to continue.'),
+  email: Yup.string()
+    .email('Invalid email.')
+    .required('Email required to continue.'),
+  // phone: Yup.string()
+  //   .matches(phoneRegEx, '(405) 232-4980 format.')
+  //   .required('Phone number required.'),
+});
 
-export const email = value => {
-  let error;
-  if (!value) {
-    error = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-    error = 'Invalid email address';
-  }
-  return error;
-};
-
-export const phone = value => {
-  let error;
-  if (!/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/i.test(value)) {
-    error = 'Please use the (123) 222-3333 number format';
-  }
-  return error;
-};
-
-export const liability = value => {
-  let error;
-  if (!value) {
-    error = 'Required';
-  } else if (value === false) {
-    error = 'You must accept the liability release.';
-  }
-  return error;
-};
+export const coValidate = Yup.object().shape({
+  firstName: Yup.string()
+    .min(2, 'Too few characters.')
+    .max(12, 'Too many characters.')
+    .matches(/^[A-Za-z/s.'-]+$/, 'No special characters or white space.'),
+  lastName: Yup.string()
+    .min(2, 'Too few characters.')
+    .max(20, 'Too many characters.')
+    .matches(/^[A-Za-z/s.'-]+$/, 'No special characters or white space.'),
+});

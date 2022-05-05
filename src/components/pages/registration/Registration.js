@@ -1,73 +1,52 @@
 import React, { useState } from 'react';
-import { Box, Container, Stack } from '@chakra-ui/react';
-import { pageContainer } from '../home/homeStyles';
-import { registrationBox } from '../home/heroStyles';
-import { Nav } from '../sections/Nav';
-import { RegisterHero } from './RegisterHero';
-import { StepOne } from './StepOne';
-import { StepTwo } from './StepTwo';
-import { ReviewCheckout } from './ReviewCheckout';
+import { Page } from '../../utils/Page';
+import { Benefits } from './Benefits';
+import { Hero } from '../sections/Hero';
+import { More } from '../../utils/More';
+import { PrimaryMember } from './forms/PrimaryMember';
+import { Apod } from '../sections/Apod';
+import { Checkout } from './Checkout';
+import { useDisclosure } from '@chakra-ui/react';
+import { MemberPrice } from '../sections/MemberPrice';
+import { Text } from '@chakra-ui/react';
 
 export const Registration = props => {
-  const [step, setStep] = useState(1);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [newMember, setNewMember] = useState();
-  const [family, setFamily] = useState([]);
+  const [coMember, setCoMember] = useState();
 
-  const handleStepOne = values => {
+  const handleJoin = values => {
     setNewMember(values);
-    setStep(prevStep => prevStep + 1);
+    onOpen(!isOpen);
   };
 
-  const handleFamily = (values, { resetForm }) => {
-    setFamily(prevState => [values, ...prevState]);
-    resetForm();
-  };
-
-  const handleStepTwo = () => {
-    setStep(prevStep => prevStep + 1);
-  };
-
-  const handleStepBack = () => {
-    setStep(prevStep => prevStep - 1);
+  const handleAddCo = values => {
+    setCoMember(values);
   };
 
   return (
-    <Container as="section" id="home" {...pageContainer}>
-      <Box {...registrationBox} borderBottom="4px" borderColor="yellow.300">
-        <Nav />
-        <RegisterHero />
-      </Box>
-      <Stack
-        flexDirection={['column', 'column', 'row']}
-        align="flex-start"
-        justifyContent="flex-start"
-        textAlign="left"
-        borderBottom="4px"
-        borderColor="blue.600"
-        minH="100vh"
-      >
-        {step === 1 && (
-          <StepOne isStepOne={handleStepOne} newMember={newMember} />
-        )}
-        {step === 2 && (
-          <StepTwo
-            isStepTwo={handleStepTwo}
-            isSetFamily={handleFamily}
-            family={family}
-            setFamily={setFamily}
-            isStepBack={handleStepBack}
-            setStep={setStep}
-            step={step}
-          />
-        )}
-        {step === 3 && (
-          <ReviewCheckout
-            newMember={newMember}
-            family={family}
-            isStepBack={handleStepBack}
-          />
-        )}
-      </Stack>
-    </Container>
+    <Page id="join-the-club">
+      <Hero heading={'Join today, gaze tonight.'} image={'sadr-wide.jpg'}>
+        <Text>
+          Club dues are $36 per year, pro-rated your first year. A new
+          membership is currently $<MemberPrice />.
+        </Text>
+        <PrimaryMember isJoin={handleJoin} />
+        <More text={'View membership benefits'} />
+
+        <Checkout
+          isOpen={isOpen}
+          onOpen={onOpen}
+          onClose={onClose}
+          newMember={newMember}
+          isCoMember={handleAddCo}
+          coMember={coMember}
+          setCoMember={setCoMember}
+        />
+      </Hero>
+
+      <Benefits />
+      <Apod />
+    </Page>
   );
 };

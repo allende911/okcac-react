@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box, Button, Flex, Image } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 
 const tempButtons = [
-  { name: 'About', linkTo: '' },
-  { name: 'Contact', linkTo: '' },
-  { name: 'Events', linkTo: '' },
+  { name: 'About', linkTo: '/#' },
+  { name: 'Contact', linkTo: '/#' },
+  { name: 'Events', linkTo: '/#' },
   { name: 'Forum', linkTo: 'http://okcastroclub.com/phpBB2/index.php' },
 ];
 
@@ -19,7 +20,9 @@ export const Nav = () => {
         align="center"
         justify={['flex-start']}
       >
-        <Image src="./logo.png" w="225px" />
+        <Link to="/">
+          <Image src="./logo.png" w="225px" />
+        </Link>
         <Flex justify="flex-end" w="full">
           {tempButtons.map((buttons, index) => (
             <a href={buttons.linkTo} key={index}>
