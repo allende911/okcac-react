@@ -8,7 +8,6 @@ import axios from 'axios';
 
 export const Success = props => {
   useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem('Name')));
     axios
       .post(
         'http://localhost:1337/api/members',
