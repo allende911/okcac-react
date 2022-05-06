@@ -26,7 +26,7 @@ export const Registration = props => {
 
   return (
     <Page id="join-the-club">
-      <Hero heading={'Join today, gaze tonight.'} image={'sadr-wide.jpg'}>
+      <Hero heading={'Join today, gaze tonight.'} image={'/sadr-wide.jpg'}>
         <Text>
           Club dues are $36 per year, pro-rated your first year. A new
           membership is currently $<MemberPrice />.

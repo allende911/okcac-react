@@ -33,8 +33,8 @@ export const Stripe = ({ newMember, coMember }) => {
             },
           ],
           mode: 'payment',
-          successUrl: 'https://parsecs.io/success',
-          cancelUrl: 'https://parsecs.io/error',
+          successUrl: 'https://parsecs.io/join/success',
+          cancelUrl: 'https://parsecs.io/join/error',
         })
         .then(response => console.log(response.error))
         .catch(error => console.log(error));

@@ -27,7 +27,7 @@ export const Success = props => {
         text={
           'Thank you for joining the Oklahoma City Astronomy Club! You will receive an introductory email from our Membership Secretary with all the new membership details. While you wait on that, join our club forum and our club private Facebook group and introduce yourself.'
         }
-        image={'sadr-wide.jpg'}
+        image={'/sadr-wide.jpg'}
       >
         <Text>
           Be sure to check out our upcoming events and club meetings and we hope

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const tempButtons = [
   { name: 'About', linkTo: '#about' },
-  { name: 'Contact', linkTo: '/#' },
+  { name: 'Contact', linkTo: 'mailto:info@okcastroclub.com' },
   { name: 'Events', linkTo: '#events' },
   { name: 'Forum', linkTo: 'http://okcastroclub.com/phpBB2/index.php' },
 ];
@@ -21,7 +21,7 @@ export const Nav = () => {
         justify={['flex-start']}
       >
         <Link to="/">
-          <Image src="./logo.png" w="225px" />
+          <Image src="/logo.png" w="225px" />
         </Link>
         <Flex justify="flex-end" w="full">
           {tempButtons.map((buttons, index) => (
