@@ -10,9 +10,7 @@ const prices = {
   5: 'price_1Kvqb9Ff9B6igBMj9Jv42kOL',
 };
 
-const stripePromise = loadStripe(
-  'pk_test_51KTx32Ff9B6igBMjGFFnQpoISxB0W19RSwvkgPBmJvAUnJYdbuSCOpLNDElE8YBTITTWkUsv3IBNv19xnK5krXoj00xIpghiQV'
-);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE);
 
 export const Stripe = ({ newMember, coMember }) => {
   const submission = JSON.stringify({

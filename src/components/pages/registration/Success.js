@@ -6,7 +6,7 @@ import { cards } from './successCards';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import axios from 'axios';
 
-const baseUrl = 'https://okcac-server.herokuapp.com';
+const baseUrl = process.env.REACT_APP_STRAPI;
 
 export const Success = props => {
   useEffect(() => {

@@ -42,7 +42,7 @@ export const NSNevents = () => {
   useEffect(() => {
     axios
       .get(
-        'https://floating-temple-76076.herokuapp.com/https://nightsky.jpl.nasa.gov/js/data/events_json_api.cfm?&Club_ID=877&IncludeRN=1'
+        `${process.env.REACT_APP_NSN}https://nightsky.jpl.nasa.gov/js/data/events_json_api.cfm?&Club_ID=877&IncludeRN=1`
       )
       .then(response => setEvents(response.data.events));
   }, []);
@@ -143,7 +143,7 @@ export const NSNevents = () => {
                 .map(
                   (event, index) =>
                     index < 5 && (
-                      <Box textAlign="left" key={index}>
+                      <Box textAlign="left" key={index} px={6}>
                         <Heading size="sm">{event.title}</Heading>
                         <Text fontWeight="bold">
                           {handleDates(event.start_dates)}

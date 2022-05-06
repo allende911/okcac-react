@@ -31,7 +31,7 @@ export const ClubMeeting = () => {
             </Box>
             <Box
               textAlign="left"
-              p={4}
+              p={8}
               alignSelf="stretch"
               border="1px"
               borderColor="gray.800"
