@@ -47,10 +47,6 @@ export const NSNevents = () => {
       .then(response => setEvents(response.data.events));
   }, []);
 
-  if (!events) {
-    return;
-  }
-
   const handleDates = date => {
     let tempDate = new Date(date);
     return tempDate.toLocaleDateString('en-US', {
@@ -62,13 +58,14 @@ export const NSNevents = () => {
 
   return (
     <Segment my={{ base: 2, md: 4, lg: 8 }}>
-      {!events && (
+      {!events ? (
         <>
-          <Heading size="lg">Fetching events from the NSN</Heading>
+          <Heading size="lg">
+            Fetching events from the Night Sky Network
+          </Heading>
           <Spinner size="lg" />
         </>
-      )}
-      {events && (
+      ) : (
         <>
           <Flex flexDirection={{ base: 'column', lg: 'row' }}>
             <VStack
