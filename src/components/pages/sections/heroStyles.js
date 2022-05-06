@@ -24,4 +24,5 @@ export const heroBox = {
   minH: ['auto', '100vh', '100vh'],
   backgroundSize: 'cover',
   backgroundPosition: 'center right',
+  backgroundRepeat: 'no-repeat',
 };

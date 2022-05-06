@@ -5,6 +5,7 @@ import { Apod } from '../sections/Apod';
 import { More } from '../../utils/More';
 import { GetHelp } from './GetHelp';
 import { Page } from '../../utils/Page';
+import { ClubMeeting } from '../sections/ClubMeeting';
 
 export const Home = props => {
   return (
@@ -20,6 +21,7 @@ export const Home = props => {
         <More paddingTop="10em" />
       </Hero>
       <About />
+      <ClubMeeting />
       <Apod />
     </Page>
   );

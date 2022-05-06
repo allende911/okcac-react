@@ -3,14 +3,14 @@ import React from 'react';
 
 export const Segment = ({ id, heading, ...props }) => {
   return (
-    <Box id={id} {...props} mb={8}>
+    <Box id={id} {...props}>
       <Flex
         flexDirection="column"
         align="center"
         justify="center"
         as="section"
         color="white"
-        minH="50vh"
+        minH="70vh"
       >
         <Heading size="2xl" my={8}>
           {heading}

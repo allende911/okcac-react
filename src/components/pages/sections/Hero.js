@@ -8,7 +8,8 @@ const alerts = {
   active: true,
   status: 'info',
   title: 'Beta',
-  description: 'This website is not finished. Stuff will break.',
+  description:
+    'This website is a work in progress. Not all content is available.',
 };
 
 export const Hero = ({ image, heading, text, ...props }) => {
@@ -21,6 +22,8 @@ export const Hero = ({ image, heading, text, ...props }) => {
       borderColor="yellow.300"
       background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
     url(${image})`}
+      backgroundSize="cover"
+      backgroundRepeat="no-repeat"
     >
       <Box as="section" id="hero" align="center" justify="center">
         {open && alerts.active && (
