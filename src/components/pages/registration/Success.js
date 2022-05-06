@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Page } from '../../utils/Page';
 import { Hero } from '../sections/Hero';
 import { Card } from '../../utils/Card';
@@ -11,15 +11,26 @@ const post = process.env.REACT_APP_MEMBERPOST;
 axios.defaults.headers.common = { Authorization: `Bearer ${post}` };
 
 export const Success = props => {
+  const [logError, setError] = useState();
   useEffect(() => {
     axios
       .post(`${baseUrl}api/members`, JSON.parse(localStorage.getItem('data')))
       .then(response => {
         if (!response.error) {
           localStorage.clear('data');
+        } else {
+          setError(response.error);
+          localStorage.clear('data');
         }
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (!error) {
+          localStorage.clear('data');
+        } else {
+          setError(error);
+          localStorage.clear('data');
+        }
+      });
   }, []);
 
   return (
@@ -31,6 +42,23 @@ export const Success = props => {
         }
         image={'/sadr-wide.jpg'}
       >
+        {logError && (
+          <Box
+            w={{ base: 'full', md: '50%' }}
+            border="1px"
+            borderRadius="lg"
+            borderColor="red.600"
+            backgroundColor="red.800"
+            p={4}
+          >
+            <Text fontWeight="bold">
+              Your payment was successful, but your information was not uploaded
+              to our database. Don't worry, you're still a member! We will
+              contact you at your payment email address. We apologize for the
+              issue.
+            </Text>
+          </Box>
+        )}
         <Text>
           Be sure to check out our upcoming events and club meetings and we hope
           to meet you at one very soon.
