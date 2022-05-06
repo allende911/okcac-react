@@ -7,6 +7,8 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import axios from 'axios';
 
 const baseUrl = process.env.REACT_APP_STRAPI;
+const post = process.env.REACT_APP_MEMBERPOST;
+axios.defaults.headers.common = { Authorization: `Bearer ${post}` };
 
 export const Success = props => {
   useEffect(() => {

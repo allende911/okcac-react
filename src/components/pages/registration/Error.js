@@ -3,8 +3,6 @@ import { Page } from '../../utils/Page';
 import { Hero } from '../sections/Hero';
 import { Text } from '@chakra-ui/react';
 
-const baseUrl = 'https://okcac-server.herokuapp.com';
-
 export const Error = props => {
   useEffect(() => {
     localStorage.clear('data');

@@ -3,11 +3,9 @@ import axios from 'axios';
 import {
   Box,
   Button,
-  Divider,
   Flex,
   Heading,
   Icon,
-  Skeleton,
   Spinner,
   Text,
 } from '@chakra-ui/react';

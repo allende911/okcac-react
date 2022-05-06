@@ -112,7 +112,11 @@ export const NSNevents = () => {
                         <Text noOfLines={4} lineHeight="tall">
                           {event.description}
                         </Text>
-                        <a href={event.partner_opp_url} target="_blank">
+                        <a
+                          href={event.partner_opp_url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <Button
                             colorScheme="blue"
                             variant="outline"
@@ -152,7 +156,11 @@ export const NSNevents = () => {
                         <Text noOfLines={4} lineHeight="tall">
                           {event.description}
                         </Text>
-                        <a href={event.partner_opp_url} target="_blank">
+                        <a
+                          href={event.partner_opp_url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <Button
                             colorScheme="blue"
                             variant="outline"
@@ -172,6 +180,7 @@ export const NSNevents = () => {
       <a
         href="https://nightsky.jpl.nasa.gov/event-list.cfm?Club_ID=877"
         target="_blank"
+        rel="noreferrer"
       >
         <Button colorScheme="black" isFullWidth my={4}>
           See the entire club calendar at NSN
