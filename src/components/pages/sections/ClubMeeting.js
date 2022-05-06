@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Divider,
-  Flex,
-  Heading,
-  Image,
-  Spinner,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Image, Spinner, Text } from '@chakra-ui/react';
 import { Segment } from './Segment';
 import { NSNevents } from './NSNevents';
 

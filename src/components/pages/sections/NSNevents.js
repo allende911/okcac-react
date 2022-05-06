@@ -5,11 +5,9 @@ import {
   Button,
   Divider,
   Flex,
-  Grid,
-  GridItem,
   Heading,
-  HStack,
   Image,
+  Spinner,
   Text,
   VStack,
 } from '@chakra-ui/react';
@@ -64,106 +62,116 @@ export const NSNevents = () => {
 
   return (
     <Segment my={{ base: 2, md: 4, lg: 8 }}>
-      <Flex flexDirection={{ base: 'column', lg: 'row' }}>
-        <VStack
-          border="1px"
-          borderColor="gray.800"
-          borderRadius="lg"
-          m={2}
-          px={8}
-        >
-          <Heading size="lg" my={2}>
-            Public Outreach
-          </Heading>
-          {events
-            .filter(
-              local =>
-                local.address_state === 'OK' &&
-                local.title !== 'Oklahoma City Astronomy Club Meeting'
-            )
-            .map(
-              (event, index) =>
-                index < 3 && (
-                  <Box key={index}>
-                    {eventImages
-                      .filter(image => image.eventName === event.title)
-                      .map((meta, index) => (
-                        <Box key={index} my={2}>
-                          <Heading size="md" my={4}>
-                            {event.title}
-                          </Heading>
-                          <Image
-                            src={meta.photo}
-                            alt={meta.alt}
-                            width="full"
-                            key={index}
-                            borderRadius="lg"
-                          />
-                        </Box>
-                      ))}
-
-                    <Text fontWeight="semibold" my={4}>
-                      {event.title} | {handleDates(event.start_dates)}
-                    </Text>
-
-                    <Text noOfLines={4} lineHeight="tall">
-                      {event.description}
-                    </Text>
-                    <a href={event.partner_opp_url} target="_blank">
-                      <Button
-                        colorScheme="blue"
-                        variant="outline"
-                        size="sm"
-                        my={4}
-                      >
-                        Read More
-                      </Button>
-                    </a>
-                    <Divider />
-                  </Box>
+      {!events && (
+        <>
+          <Heading size="lg">Fetching events from the NSN</Heading>
+          <Spinner size="lg" />
+        </>
+      )}
+      {events && (
+        <>
+          <Flex flexDirection={{ base: 'column', lg: 'row' }}>
+            <VStack
+              border="1px"
+              borderColor="gray.800"
+              borderRadius="lg"
+              m={2}
+              px={8}
+            >
+              <Heading size="lg" my={2}>
+                Public Outreach
+              </Heading>
+              {events
+                .filter(
+                  local =>
+                    local.address_state === 'OK' &&
+                    local.title !== 'Oklahoma City Astronomy Club Meeting'
                 )
-            )}
-        </VStack>
+                .map(
+                  (event, index) =>
+                    index < 3 && (
+                      <Box key={index}>
+                        {eventImages
+                          .filter(image => image.eventName === event.title)
+                          .map((meta, index) => (
+                            <Box key={index} my={2}>
+                              <Heading size="md" my={4}>
+                                {event.title}
+                              </Heading>
+                              <Image
+                                src={meta.photo}
+                                alt={meta.alt}
+                                width="full"
+                                key={index}
+                                borderRadius="lg"
+                              />
+                            </Box>
+                          ))}
 
-        <VStack
-          maxW={{ base: 'full', lg: '30%' }}
-          spacing={8}
-          border="1px"
-          borderColor="gray.800"
-          borderRadius="lg"
-          m={2}
-          p={4}
-        >
-          <Heading size="sm">Astronomical &amp; Online Events</Heading>
-          {events
-            .filter(local => local.address_state !== 'OK')
-            .map(
-              (event, index) =>
-                index < 5 && (
-                  <Box textAlign="left" key={index}>
-                    <Heading size="sm">{event.title}</Heading>
-                    <Text fontWeight="bold">
-                      {handleDates(event.start_dates)}
-                    </Text>
+                        <Text fontWeight="semibold" my={4}>
+                          {event.title} | {handleDates(event.start_dates)}
+                        </Text>
 
-                    <Text noOfLines={4} lineHeight="tall">
-                      {event.description}
-                    </Text>
-                    <a href={event.partner_opp_url} target="_blank">
-                      <Button
-                        colorScheme="blue"
-                        variant="outline"
-                        size="sm"
-                        my={2}
-                      >
-                        Read More
-                      </Button>
-                    </a>
-                  </Box>
-                )
-            )}
-        </VStack>
-      </Flex>
+                        <Text noOfLines={4} lineHeight="tall">
+                          {event.description}
+                        </Text>
+                        <a href={event.partner_opp_url} target="_blank">
+                          <Button
+                            colorScheme="blue"
+                            variant="outline"
+                            size="sm"
+                            my={4}
+                          >
+                            Read More
+                          </Button>
+                        </a>
+                        <Divider />
+                      </Box>
+                    )
+                )}
+            </VStack>
+
+            <VStack
+              maxW={{ base: 'full', lg: '30%' }}
+              spacing={8}
+              border="1px"
+              borderColor="gray.800"
+              borderRadius="lg"
+              m={2}
+              p={4}
+            >
+              <Heading size="sm">Astronomical &amp; Online Events</Heading>
+              {events
+                .filter(local => local.address_state !== 'OK')
+                .map(
+                  (event, index) =>
+                    index < 5 && (
+                      <Box textAlign="left" key={index}>
+                        <Heading size="sm">{event.title}</Heading>
+                        <Text fontWeight="bold">
+                          {handleDates(event.start_dates)}
+                        </Text>
+
+                        <Text noOfLines={4} lineHeight="tall">
+                          {event.description}
+                        </Text>
+                        <a href={event.partner_opp_url} target="_blank">
+                          <Button
+                            colorScheme="blue"
+                            variant="outline"
+                            size="sm"
+                            my={2}
+                          >
+                            Read More
+                          </Button>
+                        </a>
+                      </Box>
+                    )
+                )}
+            </VStack>
+          </Flex>
+        </>
+      )}
       <a
         href="https://nightsky.jpl.nasa.gov/event-list.cfm?Club_ID=877"
         target="_blank"

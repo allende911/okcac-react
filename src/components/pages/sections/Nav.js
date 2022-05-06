@@ -4,9 +4,9 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 
 const tempButtons = [
-  { name: 'About', linkTo: '/#' },
+  { name: 'About', linkTo: '#about' },
   { name: 'Contact', linkTo: '/#' },
-  { name: 'Events', linkTo: '/#' },
+  { name: 'Events', linkTo: '#events' },
   { name: 'Forum', linkTo: 'http://okcastroclub.com/phpBB2/index.php' },
 ];
 
