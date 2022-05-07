@@ -60,12 +60,12 @@ export const NSNevents = () => {
   return (
     <>
       {!events ? (
-        <>
+        <Flex align="center" justify="center">
           <Heading size="lg">
             Fetching events from the Night Sky Network
           </Heading>
           <Spinner size="lg" />
-        </>
+        </Flex>
       ) : (
         <Box textAlign={{ base: 'center' }}>
           <Heading size="md">Upcoming Outreach Events</Heading>
