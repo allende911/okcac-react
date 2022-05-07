@@ -18,9 +18,9 @@ export const Hero = ({ image, heading, text, ...props }) => {
   return (
     <Box
       {...heroBox}
-      borderBottom="4px"
-      borderColor="yellow.300"
-      background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+      borderBottom="1px"
+      borderColor="gray.800"
+      background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
     url(${image})`}
       backgroundSize="cover"
       backgroundRepeat="no-repeat"

@@ -12,6 +12,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { Segment } from './Segment';
+import { Card } from '../../utils/Card';
 
 export const NSNevents = () => {
   const [events, setEvents] = useState();
@@ -57,7 +58,7 @@ export const NSNevents = () => {
   };
 
   return (
-    <Segment my={{ base: 2, md: 4, lg: 8 }}>
+    <>
       {!events ? (
         <>
           <Heading size="lg">
@@ -66,126 +67,94 @@ export const NSNevents = () => {
           <Spinner size="lg" />
         </>
       ) : (
-        <>
-          <Flex flexDirection={{ base: 'column', lg: 'row' }}>
-            <VStack
-              border="1px"
-              borderColor="gray.800"
-              borderRadius="lg"
-              m={2}
-              px={8}
-            >
-              <Heading size="lg" my={2}>
-                Public Outreach
-              </Heading>
-              {events
-                .filter(
-                  local =>
-                    local.address_state === 'OK' &&
-                    local.title !== 'Oklahoma City Astronomy Club Meeting'
-                )
-                .map(
-                  (event, index) =>
-                    index < 3 && (
-                      <Box key={index}>
-                        {eventImages
-                          .filter(image => image.eventName === event.title)
-                          .map((meta, index) => (
-                            <Box key={index} my={2}>
-                              <Heading size="md" my={4}>
-                                {event.title}
-                              </Heading>
-                              <Image
-                                src={meta.photo}
-                                alt={meta.alt}
-                                width="full"
-                                key={index}
-                                borderRadius="lg"
-                              />
-                            </Box>
-                          ))}
+        <Box textAlign={{ base: 'center' }}>
+          <Heading size="md">Upcoming Outreach Events</Heading>
+          <Flex
+            flexDirection={{ md: 'row', lg: 'row' }}
+            flexWrap="wrap"
+            justifyContent="space-around"
+            alignItems="stretch"
+          >
+            {events
+              .filter(
+                local =>
+                  local.address_state === 'OK' &&
+                  local.title !== 'Oklahoma City Astronomy Club Meeting'
+              )
+              .map(
+                (event, index) =>
+                  index < 5 && (
+                    <Box key={index} color="white">
+                      {eventImages
+                        .filter(image => image.eventName === event.title)
+                        .map((meta, index) => (
+                          <Card
+                            key={index}
+                            heading={
+                              event.title +
+                              ': ' +
+                              handleDates(event.start_dates)
+                            }
+                            image={meta.photo}
+                            text={event.description}
+                            link={event.partner_opp_url}
+                          />
+                        ))}
 
-                        <Text fontWeight="semibold" my={4}>
-                          {event.title} | {handleDates(event.start_dates)}
-                        </Text>
-
-                        <Text noOfLines={4} lineHeight="tall">
-                          {event.description}
-                        </Text>
-                        <a
-                          href={event.partner_opp_url}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <Button
-                            colorScheme="blue"
-                            variant="outline"
-                            size="sm"
-                            my={4}
-                          >
-                            Read More
-                          </Button>
-                        </a>
-                        <Divider />
-                      </Box>
-                    )
-                )}
-            </VStack>
-
-            <VStack
-              maxW={{ base: 'full', lg: '30%' }}
-              spacing={8}
-              border="1px"
-              borderColor="gray.800"
-              borderRadius="lg"
-              m={2}
-              p={4}
-            >
-              <Heading size="sm">Astronomical &amp; Online Events</Heading>
-              {events
-                .filter(local => local.address_state !== 'OK')
-                .map(
-                  (event, index) =>
-                    index < 5 && (
-                      <Box textAlign="left" key={index} px={6}>
-                        <Heading size="sm">{event.title}</Heading>
-                        <Text fontWeight="bold">
-                          {handleDates(event.start_dates)}
-                        </Text>
-
-                        <Text noOfLines={4} lineHeight="tall">
-                          {event.description}
-                        </Text>
-                        <a
-                          href={event.partner_opp_url}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <Button
-                            colorScheme="blue"
-                            variant="outline"
-                            size="sm"
-                            my={2}
-                          >
-                            Read More
-                          </Button>
-                        </a>
-                      </Box>
-                    )
-                )}
-            </VStack>
+                      <a
+                        href={event.partner_opp_url}
+                        target="_blank"
+                        rel="noreferrer"
+                      ></a>
+                    </Box>
+                  )
+              )}
           </Flex>
-        </>
+          {/* <Heading size="sm">Astronomical &amp; Online Events</Heading>
+          {events
+            .filter(local => local.address_state !== 'OK')
+            .map(
+              (event, index) =>
+                index < 5 && (
+                  <Box textAlign="left" key={index} px={6}>
+                    <Heading size="sm">{event.title}</Heading>
+                    <Text fontWeight="bold">
+                      {handleDates(event.start_dates)}
+                    </Text>
+
+                    <Text noOfLines={4} lineHeight="tall">
+                      {event.description}
+                    </Text>
+                    <a
+                      href={event.partner_opp_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Button
+                        colorScheme="blue"
+                        variant="outline"
+                        size="sm"
+                        my={2}
+                      >
+                        Read More
+                      </Button>
+                    </a>
+                  </Box>
+                )
+            )} */}
+        </Box>
       )}
-      <a
-        href="https://nightsky.jpl.nasa.gov/event-list.cfm?Club_ID=877"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Button colorScheme="black" isFullWidth my={4}>
-          See the entire club calendar at NSN
-        </Button>
-      </a>
-    </Segment>
+      <Box textAlign="center">
+        <a
+          href="https://nightsky.jpl.nasa.gov/event-list.cfm?Club_ID=877"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Button colorScheme="blue" m={4}>
+            See the entire club calendar at NSN
+          </Button>
+        </a>
+      </Box>
+    </>
   );
 };

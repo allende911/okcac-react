@@ -3,18 +3,15 @@ import React from 'react';
 
 export const Segment = ({ id, heading, ...props }) => {
   return (
-    <Box id={id} {...props}>
+    <Box id={id} {...props} my={{ base: 4, md: 12, lg: 24 }}>
       <Flex
         flexDirection="column"
         align="center"
         justify="center"
         as="section"
         color="white"
-        minH="70vh"
       >
-        <Heading size="2xl" my={8}>
-          {heading}
-        </Heading>
+        <Heading size="2xl">{heading}</Heading>
 
         {props.children}
       </Flex>
