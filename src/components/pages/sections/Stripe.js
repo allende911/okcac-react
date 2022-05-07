@@ -4,10 +4,10 @@ import { Button } from '@chakra-ui/react';
 
 const current = new Date();
 const prices = {
-  2: 'price_1KVNZIFf9B6igBMjIl6bCRgN',
-  3: 'price_1Kj7GtFf9B6igBMjMGiyVrZo',
-  4: 'price_1KUZhxFf9B6igBMjp0aqFSpp',
-  5: 'price_1Kvqb9Ff9B6igBMj9Jv42kOL',
+  2: '',
+  3: '',
+  4: 'price_1KvNofFf9B6igBMjzI6AePjD',
+  5: 'price_1KvNofFf9B6igBMjpzH85kha',
 };
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE}`);
