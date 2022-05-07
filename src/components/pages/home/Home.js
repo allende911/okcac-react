@@ -15,7 +15,7 @@ export const Home = props => {
         text={
           'The Oklahoma City Astronomy Club has been helping metro area residents observe the mysteries that our night sky has to offer since 1958. We use telescopes, binoculars, computers, cameras, and our own two eyes to observe and deepen our understanding of our universe.'
         }
-        image={'04.jpg'}
+        image={'/04.jpg'}
       >
         <GetHelp />
         <More paddingTop="10em" />
