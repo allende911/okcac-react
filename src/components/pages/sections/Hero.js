@@ -5,7 +5,7 @@ import { heroStack, heroHeader, heroText, heroBox } from './heroStyles';
 import { AlertMessage } from '../sections/AlertMessage';
 
 const alerts = {
-  active: true,
+  active: false,
   status: 'info',
   title: 'Beta',
   description:
