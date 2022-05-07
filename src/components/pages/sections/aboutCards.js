@@ -5,18 +5,18 @@ export const cards = [
     key: 1,
     icon: FaUserAstronaut,
     heading: 'Established 1958',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    text: 'The OKCAC was founded over half a century ago, and has provided thousands of metro area residents with a deeper knowledge of the night sky.',
   },
   {
     key: 2,
     icon: FaRocket,
     heading: 'Science Advocacy',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    text: 'Our monthly club meetings feature a wide array of topics dealing with various fields of science centered around astronomy. We love learning about and sharing our knowledge.',
   },
   {
     key: 3,
     icon: FaCloudMoon,
     heading: 'Public Outreach',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    text: 'We provide numerous free public outreach events each year. You may regularly find us at Scissortail Park, Lake Hefner, Stanley Draper, or various places around Norman.',
   },
 ];
