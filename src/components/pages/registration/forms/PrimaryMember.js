@@ -64,6 +64,9 @@ export const PrimaryMember = ({ isJoin }) => {
                     variant="outline"
                     placeholder="Email address"
                   />
+                  {errors.interest && touched.interest ? (
+                    <Error>{errors.interest}</Error>
+                  ) : null}
                   <Field
                     as={Select}
                     id="interest"

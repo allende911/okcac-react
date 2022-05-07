@@ -15,6 +15,7 @@ export const Validate = Yup.object().shape({
   email: Yup.string()
     .email('Invalid email.')
     .required('Email required to continue.'),
+  interest: Yup.string().required('Pick one'),
   // phone: Yup.string()
   //   .matches(phoneRegEx, '(405) 232-4980 format.')
   //   .required('Phone number required.'),

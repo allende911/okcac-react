@@ -5,6 +5,7 @@ import { Card } from '../../utils/Card';
 import { cards } from './successCards';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import axios from 'axios';
+import { NotFound } from '../404';
 
 const baseUrl = process.env.REACT_APP_STRAPI;
 const post = process.env.REACT_APP_MEMBERPOST;
@@ -13,27 +14,33 @@ axios.defaults.headers.common = { Authorization: `Bearer ${post}` };
 export const Success = props => {
   const [logError, setError] = useState();
   useEffect(() => {
-    axios
-      .post(`${baseUrl}api/members`, JSON.parse(localStorage.getItem('data')))
-      .then(response => {
-        if (!response.error) {
-          localStorage.clear('data');
-        } else {
-          setError(response.error);
-          localStorage.clear('data');
-        }
-      })
-      .catch(error => {
-        if (!error) {
-          localStorage.clear('data');
-        } else {
-          setError(error);
-          localStorage.clear('data');
-        }
-      });
+    if (localStorage.getItem('data') === null) {
+      setError('no data');
+    } else {
+      axios
+        .post(`${baseUrl}api/members`, JSON.parse(localStorage.getItem('data')))
+        .then(response => {
+          if (!response.error) {
+            localStorage.clear('data');
+          } else {
+            setError(response.error);
+            localStorage.clear('data');
+          }
+        })
+        .catch(error => {
+          if (!error) {
+            localStorage.clear('data');
+          } else {
+            setError(error);
+            localStorage.clear('data');
+          }
+        });
+    }
   }, []);
 
-  return (
+  return logError === 'no data' ? (
+    <NotFound />
+  ) : (
     <Page id="success">
       <Hero
         heading={'Welcome to the club!'}
@@ -77,7 +84,7 @@ export const Success = props => {
               key={index}
               minW={'25em'}
               maxW={{ base: 'full', md: '30%' }}
-              align-self="stretch"
+              alignSelf="stretch"
               justifyContent="space-stretch"
             >
               <Card

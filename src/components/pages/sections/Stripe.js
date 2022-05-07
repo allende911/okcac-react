@@ -31,8 +31,8 @@ export const Stripe = ({ newMember, coMember }) => {
             },
           ],
           mode: 'payment',
-          successUrl: 'https://parsecs.io/join/success',
-          cancelUrl: 'https://parsecs.io/join/error',
+          successUrl: 'https://okcastroclub.org/join/success',
+          cancelUrl: 'https://okcastroclub.org/join/error',
         })
         .then(response => console.log(response.error))
         .catch(error => console.log(error));
