@@ -3,11 +3,12 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Button } from '@chakra-ui/react';
 
 const current = new Date();
+
 const prices = {
   2: '',
   3: '',
-  4: 'price_1KvNofFf9B6igBMjzI6AePjD',
-  5: 'price_1KvNofFf9B6igBMjpzH85kha',
+  4: '',
+  5: 'price_1KxBX1Ff9B6igBMj92UeEcao',
 };
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE}`);
