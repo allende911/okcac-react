@@ -104,7 +104,16 @@ export const Signup = () => {
                 />
               </FormControl>
             </Box>
-            <Button type="submit">Checkout</Button>
+            <Button
+              type="submit"
+              bgColor="blue.600"
+              fontSize="md"
+              fontWeight="bold"
+              _hover={{ color: 'black', bgColor: 'yellow.600' }}
+              isFullWidth
+            >
+              Checkout
+            </Button>
           </Flex>
         </Form>
       )}
