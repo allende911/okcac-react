@@ -17,7 +17,7 @@ export const OTSPSuccess = props => {
     } else {
       axios
         .post(
-          `${baseUrl}/api/otsp-seminar`,
+          `${baseUrl}api/otsp-seminar`,
           JSON.parse(localStorage.getItem('data'))
         )
         .then(response => {
