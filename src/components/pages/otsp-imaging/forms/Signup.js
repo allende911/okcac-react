@@ -17,7 +17,7 @@ const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE}`);
 export const Signup = () => {
   const handleSubmit = values => {
     localStorage.setItem('data', JSON.stringify({ data: values }));
-    testPromise.then(stripe => {
+    stripePromise.then(stripe => {
       stripe
         .redirectToCheckout({
           lineItems: [
