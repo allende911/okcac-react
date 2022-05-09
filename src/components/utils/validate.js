@@ -25,9 +25,11 @@ export const coValidate = Yup.object().shape({
   firstName: Yup.string()
     .min(2, 'Too few characters.')
     .max(12, 'Too many characters.')
-    .matches(/^[A-Za-z/s.'-]+$/, 'No special characters or white space.'),
+    .matches(/^[A-Za-z/s.'-]+$/, 'No special characters or white space.')
+    .required('Name required to continue.'),
   lastName: Yup.string()
     .min(2, 'Too few characters.')
     .max(20, 'Too many characters.')
-    .matches(/^[A-Za-z/s.'-]+$/, 'No special characters or white space.'),
+    .matches(/^[A-Za-z/s.'-]+$/, 'No special characters or white space.')
+    .required('Name required to continue.'),
 });

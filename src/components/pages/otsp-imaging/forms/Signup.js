@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { Error } from '../../../utils/Error';
 import { loadStripe } from '@stripe/stripe-js';
+import { coValidate } from '../../../utils/validate';
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE}`);
 
@@ -44,6 +45,7 @@ export const Signup = () => {
         comments: '',
       }}
       onSubmit={handleSubmit}
+      validationSchema={coValidate}
     >
       {({ errors, touched }) => (
         <Form>
@@ -100,7 +102,7 @@ export const Signup = () => {
                   name="comments"
                   type="name"
                   variant="outline"
-                  placeholder="Comments"
+                  placeholder="If registering for multiple people, please provide their names here."
                 />
               </FormControl>
             </Box>
