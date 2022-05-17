@@ -13,7 +13,7 @@ export const Benefits = props => {
       m={{ base: 4, md: 12, lg: 24 }}
     >
       <Heading size="lg" p="2">
-        Who We Are
+        Member Benenfits
       </Heading>
       <Flex
         flexDirection={{ md: 'row', lg: 'row' }}
