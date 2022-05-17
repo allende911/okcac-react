@@ -56,7 +56,7 @@ export const Card = ({
           <Text fontWeight="bold" py={2}>
             {date}
           </Text>
-          <Text noOfLines={5}>{text}</Text>
+          <Text noOfLines={8}>{text}</Text>
         </LinkOverlay>
       </Box>
     </LinkBox>

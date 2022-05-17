@@ -81,7 +81,7 @@ export const Apod = () => {
                 minH="25vh"
                 w={['full', 'full', '60%']}
                 lineHeight="taller"
-                noOfLines="6"
+                noOfLines="8"
                 textShadow="1px 1px 2px black"
               >
                 {apod.data.explanation}
