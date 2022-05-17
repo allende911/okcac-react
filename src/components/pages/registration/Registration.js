@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Page } from '../../utils/Page';
 import { Benefits } from './Benefits';
 import { Hero } from '../sections/Hero';
-import { More } from '../../utils/More';
 import { PrimaryMember } from './forms/PrimaryMember';
 import { Apod } from '../sections/Apod';
 import { Checkout } from './Checkout';
@@ -25,7 +24,15 @@ export const Registration = props => {
   };
 
   return (
-    <Page id="join-the-club">
+    <Page
+      id="join-the-club"
+      background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url("/sadr-wide.jpg")`}
+      backgroundAttachment="fixed"
+      backgroundSize="cover"
+      backgroundPosition="center right fixed"
+      backgroundRepeat="no-repeat"
+    >
       <Hero heading={'Join today, gaze tonight.'} image={'/sadr-wide.jpg'}>
         <Text>
           Club dues are $36 per year, pro-rated your first year. A new
@@ -33,7 +40,6 @@ export const Registration = props => {
           fee).
         </Text>
         <PrimaryMember isJoin={handleJoin} />
-        <More text={'View membership benefits'} />
 
         <Checkout
           isOpen={isOpen}

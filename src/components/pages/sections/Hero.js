@@ -16,21 +16,13 @@ export const Hero = ({ image, heading, text, ...props }) => {
   const [open, setOpen] = useState(true);
 
   return (
-    <Box
-      {...heroBox}
-      borderBottom="1px"
-      borderColor="gray.800"
-      background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
-    url(${image})`}
-      backgroundSize="cover"
-      backgroundRepeat="no-repeat"
-    >
+    <Box {...heroBox}>
       <Box as="section" id="hero" align="center" justify="center">
         {open && alerts.active && (
           <AlertMessage {...alerts} setOpen={setOpen} />
         )}
         <Nav />
-        <VStack {...heroStack} spacing={3}>
+        <VStack {...heroStack} spacing={3} align="center">
           <Heading {...heroHeader}>{heading}</Heading>
           <Text {...heroText}>{text}</Text>
           {props.children}

@@ -1,6 +1,6 @@
 export const getHelpFlex = {
   flexDirection: ['column', 'column', 'row'],
-  p: '2',
+  py: '2',
   justifyContent: 'space-around, center, center',
   alignItems: 'center',
   w: '1xl',

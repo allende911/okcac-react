@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Stack, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import React from 'react';
 import { Page } from '../../utils/Page';
 import { Apod } from '../sections/Apod';
@@ -7,7 +7,15 @@ import { Checkout } from './Checkout';
 
 export const ImagingSession = () => {
   return (
-    <Page id="astrophotography-seminar">
+    <Page
+      id="astrophotography-seminar"
+      background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url("/otsp.jpg")`}
+      backgroundAttachment="fixed"
+      backgroundSize="cover"
+      backgroundPosition="center right fixed"
+      backgroundRepeat="no-repeat"
+    >
       <Hero
         heading="2022 Astrophotography Session"
         text="Add on to your Okie-Tex 2022 experience with a two-day immersive astrophotography seminar. Sunday, September 25 and Monday, September 26, join hosts Jon Talbot and Trevor Jones as they give us an in-depth look into PixInsight and widefield astrophotography. "

@@ -45,7 +45,7 @@ export const Card = ({
               display={!icon ? 'none' : 'initial'}
             />
           )}
-          <Heading size="md" my="2">
+          <Heading size="md" my="2" textTransform={['uppercase']}>
             {heading}
           </Heading>
           {image && (
