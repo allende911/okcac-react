@@ -11,7 +11,6 @@ export const Events = () => {
       as="section"
       m={{ base: 4, md: 12, lg: 24 }}
       textAlign="left"
-      shadow="dark-lg"
     >
       <Heading size="lg" p="2">
         Upcoming Events
