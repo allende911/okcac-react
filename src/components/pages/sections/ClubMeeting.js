@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, HStack, Image, Text } from '@chakra-ui/react';
 
 const meetingInfo = [
   {
     heading: 'June Club Meeting',
-    time: '7pm',
+    time: 'June 10, 7pm',
     location: 'Mitch Park Edmond, OK',
     topic: 'Club Party in the Park',
     description:
@@ -17,24 +17,26 @@ const meetingInfo = [
 export const ClubMeeting = () => {
   return (
     <>
-      <Flex
-        flexDirection={{ md: 'row', lg: 'column' }}
-        flexWrap="wrap"
-        justifyContent="flex-start"
-        alignSelf="stretch"
-      >
+      <HStack alignItems="stretch" spacing={1}>
+        <Image
+          src="/okcac-clubmeeting.jpg"
+          objectFit="cover"
+          boxSize="25em"
+          display={{ base: 'none', lg: 'initial' }}
+        />
+
         <Box m="8">
-          {meetingInfo.map(meeting => (
-            <>
+          {meetingInfo.map((meeting, index) => (
+            <Box px="8" py="2" key={index}>
               <Heading size="lg" mt={2}>
                 {meeting.heading}
               </Heading>
               <Heading size="sm">
                 {meeting.time}, {meeting.location}
               </Heading>
-              <Text fontSize="lg" mt={8}>
+              <Heading size="sm" fontWeight="semibold" mt={8}>
                 {meeting.topic}: {meeting.author}
-              </Text>
+              </Heading>
               <Text>{meeting.description}</Text>
               <Heading size="sm" fontWeight="semibold" mt={8}>
                 Meeting Info:
@@ -42,10 +44,10 @@ export const ClubMeeting = () => {
               <Text fontSize="sm" my={2}>
                 {meeting.boilerplate}
               </Text>
-            </>
+            </Box>
           ))}
         </Box>
-      </Flex>
+      </HStack>
     </>
   );
 };

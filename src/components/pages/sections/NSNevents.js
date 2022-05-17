@@ -55,10 +55,9 @@ export const NSNevents = () => {
   ) : (
     <>
       <Flex
-        flexDirection={{ md: 'row', lg: 'row' }}
-        flexWrap="wrap"
-        // justifyContent="space-around"
-        alignItems="stretch"
+        flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+        justifyContent={{ base: 'space-evenly', lg: 'flex-start' }}
+        alignItems={{ base: 'center', md: 'stretch' }}
       >
         {events
           .filter(
