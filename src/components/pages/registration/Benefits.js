@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card } from '../../utils/Card';
+import { Card } from '../../UI/Card';
 import { Box, Flex, Heading } from '@chakra-ui/react';
 import { cards } from './benefitsList';
-import { Segment } from '../sections/Segment';
+import { Segment } from '../../UI/Segment';
 
 export const Benefits = props => {
   return (

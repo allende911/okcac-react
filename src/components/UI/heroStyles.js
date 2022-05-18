@@ -22,7 +22,7 @@ export const heroText = {
 };
 
 export const heroBox = {
-  minH: ['auto', '50vh', '60vh'],
+  minH: ['auto', '50vh', '75vh'],
   textAlign: ['center'],
   backgroundSize: 'cover',
   backgroundPosition: 'center right fixed',

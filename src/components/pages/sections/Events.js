@@ -1,7 +1,7 @@
 import React from 'react';
 import { ClubMeeting } from './ClubMeeting';
 import { NSNevents } from './NSNevents';
-import { Segment } from './Segment';
+import { Segment } from '../../UI/Segment';
 import { Box, Divider, Heading, Spinner } from '@chakra-ui/react';
 
 export const Events = () => {

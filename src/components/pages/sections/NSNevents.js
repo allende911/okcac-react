@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Box, Button, Flex, Heading, Spinner } from '@chakra-ui/react';
-
-import { Card } from '../../utils/Card';
+import { Card } from '../../UI/Card';
 
 export const NSNevents = () => {
   const [events, setEvents] = useState();
@@ -82,12 +81,6 @@ export const NSNevents = () => {
                         link={event.partner_opp_url}
                       />
                     ))}
-
-                  <a
-                    href={event.partner_opp_url}
-                    target="_blank"
-                    rel="noreferrer"
-                  ></a>
                 </Box>
               )
           )}

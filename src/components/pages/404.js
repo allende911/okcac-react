@@ -1,6 +1,6 @@
 import React from 'react';
-import { Page } from '../utils/Page';
-import { Hero } from './sections/Hero';
+import { Page } from '../UI/Page';
+import { Hero } from '../UI/Hero';
 
 export const NotFound = () => {
   return (

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Nav } from './Nav';
+import { Nav } from '../pages/sections/Nav';
 import { Box, Heading, Text, VStack } from '@chakra-ui/react';
 import { heroStack, heroHeader, heroText, heroBox } from './heroStyles';
-import { AlertMessage } from '../sections/AlertMessage';
+import { AlertMessage } from '../pages/sections/AlertMessage';
 
 const alerts = {
-  active: false,
+  active: true,
   status: 'info',
   title: 'Beta',
   description:

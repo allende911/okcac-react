@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Page } from '../../utils/Page';
-import { Hero } from '../sections/Hero';
+import { Page } from '../../UI/Page';
+import { Hero } from '../../UI/Hero';
 import { Text } from '@chakra-ui/react';
 
 export const Error = props => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Page } from '../../utils/Page';
+import { Page } from '../../UI/Page';
 import { Benefits } from './Benefits';
-import { Hero } from '../sections/Hero';
+import { Hero } from '../../UI/Hero';
 import { PrimaryMember } from './forms/PrimaryMember';
 import { Apod } from '../sections/Apod';
 import { Checkout } from './Checkout';

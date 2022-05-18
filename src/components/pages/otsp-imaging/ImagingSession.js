@@ -1,8 +1,8 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import React from 'react';
-import { Page } from '../../utils/Page';
+import { Page } from '../../UI/Page';
 import { Apod } from '../sections/Apod';
-import { Hero } from '../sections/Hero';
+import { Hero } from '../../UI/Hero';
 import { Checkout } from './Checkout';
 
 export const ImagingSession = () => {

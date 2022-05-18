@@ -1,8 +1,8 @@
 import React from 'react';
-import { Hero } from '../sections/Hero';
+import { Hero } from '../../UI/Hero';
 import { About } from '../sections/About';
 import { Apod } from '../sections/Apod';
-import { Page } from '../../utils/Page';
+import { Page } from '../../UI/Page';
 import { Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { Events } from '../sections/Events';

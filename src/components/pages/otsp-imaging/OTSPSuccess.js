@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Page } from '../../utils/Page';
-import { Hero } from '../sections/Hero';
+import { Page } from '../../UI/Page';
+import { Hero } from '../../UI/Hero';
 import { Box, Text } from '@chakra-ui/react';
 import axios from 'axios';
 import { NotFound } from '../404';

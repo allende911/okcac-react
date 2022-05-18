@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Page } from '../../utils/Page';
-import { Hero } from '../sections/Hero';
-import { Card } from '../../utils/Card';
+import { Page } from '../../UI/Page';
+import { Hero } from '../../UI/Hero';
+import { Card } from '../../UI/Card';
 import { cards } from './successCards';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import axios from 'axios';
