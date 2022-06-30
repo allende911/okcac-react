@@ -14,22 +14,27 @@ import { loadStripe } from '@stripe/stripe-js';
 import { coValidate } from '../../../utils/validate';
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE}`);
+const react = process.env.REACT_APP_REACT;
+const basePrice = 100;
 
 export const Signup = () => {
   const handleSubmit = values => {
-    localStorage.setItem('data', JSON.stringify({ data: values }));
+    let paid = values.quantity * basePrice;
+    let registrationInfo = { paid, ...values };
+    localStorage.setItem('data', JSON.stringify({ data: registrationInfo }));
     stripePromise.then(stripe => {
       stripe
         .redirectToCheckout({
+          customerEmail: values.email,
           lineItems: [
             {
-              price: 'price_1KxCQIFf9B6igBMjMoQSpQLs',
+              price: 'price_1L05y7Ff9B6igBMjvex7ou91',
               quantity: values.quantity,
             },
           ],
           mode: 'payment',
-          successUrl: 'http://okcastroclub.org/otsp/imaging/register/success',
-          cancelUrl: 'http://okcastroclub.org/otsp/imaging/register/error',
+          successUrl: `${react}/otsp/imaging/register/success`,
+          cancelUrl: `${react}/otsp/imaging/register/error`,
         })
         .then(response => console.log(response.error))
         .catch(error => console.log(error));
@@ -41,8 +46,10 @@ export const Signup = () => {
       initialValues={{
         firstName: '',
         lastName: '',
+        email: '',
         quantity: 1,
-        comments: '',
+        notes: '',
+        products: { id: 2 },
       }}
       onSubmit={handleSubmit}
       validationSchema={coValidate}
@@ -58,7 +65,7 @@ export const Signup = () => {
                 ) : null}
                 <Field
                   as={Input}
-                  id="email"
+                  id="firstName"
                   name="firstName"
                   type="name"
                   variant="outline"
@@ -74,11 +81,27 @@ export const Signup = () => {
                 ) : null}
                 <Field
                   as={Input}
-                  id="email"
+                  id="lastName"
                   name="lastName"
                   type="name"
                   variant="outline"
                   placeholder="Last name"
+                />
+              </FormControl>
+
+              <FormControl my={4}>
+                <FormLabel htmlFor="email">Email:</FormLabel>
+
+                {errors.email && touched.email ? (
+                  <Error>{errors.email}</Error>
+                ) : null}
+                <Field
+                  as={Input}
+                  id="email"
+                  name="email"
+                  type="email"
+                  variant="outline"
+                  placeholder="Email"
                 />
               </FormControl>
 
@@ -95,11 +118,11 @@ export const Signup = () => {
               </FormControl>
 
               <FormControl my={4}>
-                <FormLabel htmlFor="comments">Comments:</FormLabel>
+                <FormLabel htmlFor="comments">Notes:</FormLabel>
                 <Field
                   as={Textarea}
-                  id="email"
-                  name="comments"
+                  id="notes"
+                  name="notes"
                   type="name"
                   variant="outline"
                   placeholder="If registering for multiple people, please provide their names here."

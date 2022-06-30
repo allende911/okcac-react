@@ -6,12 +6,7 @@ import { Segment } from '../../UI/Segment';
 
 export const Benefits = props => {
   return (
-    <Segment
-      id="benefits"
-      className="postTop"
-      as="section"
-      m={{ base: 4, md: 12, lg: 24 }}
-    >
+    <Segment id="benefits" className="postTop" as="section">
       <Heading size="lg" p="2">
         Member Benenfits
       </Heading>

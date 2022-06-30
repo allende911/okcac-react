@@ -2,18 +2,9 @@ import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Button } from '@chakra-ui/react';
 
-const current = new Date();
-
-const prices = {
-  2: '',
-  3: '',
-  4: '',
-  5: 'price_1KxBX1Ff9B6igBMj92UeEcao',
-};
-
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE}`);
 
-export const Stripe = ({ newMember, coMember }) => {
+export const Stripe = ({ newMember, coMember, price }) => {
   const submission = JSON.stringify({
     data: { ...newMember, additionalMember: coMember },
   });
@@ -27,7 +18,7 @@ export const Stripe = ({ newMember, coMember }) => {
           billingAddressCollection: 'required',
           lineItems: [
             {
-              price: `${prices[current.getMonth() + 1]}`,
+              price: price.stripeID,
               quantity: 1,
             },
           ],

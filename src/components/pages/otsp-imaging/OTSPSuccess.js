@@ -16,10 +16,7 @@ export const OTSPSuccess = props => {
       setError('no data');
     } else {
       axios
-        .post(
-          `${baseUrl}api/otsp-seminar`,
-          JSON.parse(localStorage.getItem('data'))
-        )
+        .post(`${baseUrl}/api/orders`, JSON.parse(localStorage.getItem('data')))
         .then(response => {
           if (!response.error) {
             localStorage.clear('data');
@@ -42,13 +39,20 @@ export const OTSPSuccess = props => {
   return logError === 'no data' ? (
     <NotFound />
   ) : (
-    <Page id="success">
+    <Page
+      id="success"
+      background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url("/otsp.jpg")`}
+      backgroundAttachment="fixed"
+      backgroundSize="cover"
+      backgroundPosition="center right fixed"
+      backgroundRepeat="no-repeat"
+    >
       <Hero
         heading={'You are registered!'}
         text={
           'Thank you for registering for the 2022 Okie-Tex Astrophotography Seminar. Additional instructions will be sent to you closer to the star party. See you there!'
         }
-        image={'/sadr-wide.jpg'}
       >
         {logError && (
           <Box

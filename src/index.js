@@ -17,6 +17,7 @@ import { OTSPSuccess } from './components/pages/otsp-imaging/OTSPSuccess';
 import { Error } from './components/pages/registration/Error';
 import { NotFound } from './components/pages/404';
 import { ImagingSession } from './components/pages/otsp-imaging/ImagingSession';
+import { Apod } from './components/pages/sections/Apod';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -34,6 +35,8 @@ root.render(
         <Route path="otsp/imaging/register/error" element={<Error />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Apod />
+      {/* <Footer /> */}
     </BrowserRouter>
   </ChakraProvider>
 );

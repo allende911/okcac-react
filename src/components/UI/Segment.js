@@ -3,7 +3,12 @@ import React from 'react';
 
 export const Segment = ({ id, heading, ...props }) => {
   return (
-    <Box id={id} {...props} my={{ base: 4, md: 12, lg: 24 }}>
+    <Box
+      id={id}
+      {...props}
+      mx={{ base: 4, md: 12, lg: 24 }}
+      pb={{ base: 4, md: 12, lg: 24 }}
+    >
       <Flex
         flexDirection="column"
         align="center"

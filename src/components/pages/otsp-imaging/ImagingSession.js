@@ -19,7 +19,6 @@ export const ImagingSession = () => {
       <Hero
         heading="2022 Astrophotography Session"
         text="Add on to your Okie-Tex 2022 experience with a two-day immersive astrophotography seminar. Sunday, September 25 and Monday, September 26, join hosts Jon Talbot and Trevor Jones as they give us an in-depth look into PixInsight and widefield astrophotography. "
-        image="/otsp.jpg"
       >
         <Text>
           The seminar is $100 per person and does not include any other Okie-Tex
@@ -120,7 +119,6 @@ export const ImagingSession = () => {
         </Flex>
         {/* </Box> */}
       </Hero>
-      <Apod />
     </Page>
   );
 };

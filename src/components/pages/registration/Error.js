@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Page } from '../../UI/Page';
 import { Hero } from '../../UI/Hero';
 import { Text } from '@chakra-ui/react';
+import { Apod } from '../sections/Apod';
 
 export const Error = props => {
   useEffect(() => {
@@ -9,11 +10,18 @@ export const Error = props => {
   }, []);
 
   return (
-    <Page id="error">
+    <Page
+      id="error"
+      background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url("/sadr-wide.jpg")`}
+      backgroundAttachment="fixed"
+      backgroundSize="cover"
+      backgroundPosition="center right fixed"
+      backgroundRepeat="no-repeat"
+    >
       <Hero
         heading={'Oops! There was an issue.'}
         text={'We ran into an issue completing your request. '}
-        image={'/sadr-wide.jpg'}
       >
         <Text>
           If you received a receipt from Stripe, don't worry, you're now a club
@@ -24,6 +32,7 @@ export const Error = props => {
         </Text>
         <Text>and we'll look into it.</Text>
       </Hero>
+      <Apod />
     </Page>
   );
 };

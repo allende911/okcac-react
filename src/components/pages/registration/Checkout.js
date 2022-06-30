@@ -28,6 +28,7 @@ export const Checkout = ({
   setCoMember,
   isCoMember,
   setSuccess,
+  price,
 }) => {
   if (!newMember) {
     return;
@@ -92,6 +93,7 @@ export const Checkout = ({
               setSuccess={setSuccess}
               newMember={newMember}
               coMember={coMember}
+              price={price}
             />
           </VStack>
         </ModalBody>

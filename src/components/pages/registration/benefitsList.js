@@ -3,7 +3,7 @@ import { GoTelescope } from 'react-icons/go';
 import { GiObservatory } from 'react-icons/gi';
 import { FaUserAstronaut } from 'react-icons/fa';
 import { WiMoonAltNew } from 'react-icons/wi';
-import { MdEventAvailable, MdForum, MdLibraryAdd } from 'react-icons/md';
+import { MdForum } from 'react-icons/md';
 
 export const cards = [
   {

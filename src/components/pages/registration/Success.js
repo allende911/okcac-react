@@ -18,7 +18,10 @@ export const Success = props => {
       setError('no data');
     } else {
       axios
-        .post(`${baseUrl}api/members`, JSON.parse(localStorage.getItem('data')))
+        .post(
+          `${baseUrl}/api/members`,
+          JSON.parse(localStorage.getItem('data'))
+        )
         .then(response => {
           if (!response.error) {
             localStorage.clear('data');

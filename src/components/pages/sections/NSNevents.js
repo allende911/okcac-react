@@ -32,7 +32,7 @@ export const NSNevents = () => {
   useEffect(() => {
     axios
       .get(
-        `${process.env.REACT_APP_NSN}https://nightsky.jpl.nasa.gov/js/data/events_json_api.cfm?&Club_ID=877&IncludeRN=1`
+        `${process.env.REACT_APP_NSN}/https://nightsky.jpl.nasa.gov/js/data/events_json_api.cfm?&Club_ID=877&IncludeRN=1`
       )
       .then(response => setEvents(response.data.events));
   }, []);

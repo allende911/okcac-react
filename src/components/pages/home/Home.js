@@ -7,38 +7,34 @@ import { Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { Events } from '../sections/Events';
 
-export const Home = props => {
+export const Home = ({ about, alert, baseUrl, clubMeeting, home }) => {
   return (
-    <Page
-      id="home"
-      background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
-    url("/04.jpg")`}
-      backgroundAttachment="fixed"
-      backgroundSize="cover"
-      backgroundPosition="center right fixed"
-      backgroundRepeat="no-repeat"
-    >
-      <Hero
-        heading={'Explore the night sky with us.'}
-        text={
-          'The Oklahoma City Astronomy Club has been helping metro area residents observe the mysteries that our night sky has to offer since 1958. We use telescopes, binoculars, computers, cameras, and our own two eyes to observe and deepen our understanding of our universe.'
-        }
+    home && (
+      <Page
+        id="home"
+        background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+      url(${baseUrl}${home.backgroundImage.data.attributes.url})`}
+        backgroundAttachment="fixed"
+        backgroundSize="cover"
+        backgroundPosition="center right fixed"
+        backgroundRepeat="no-repeat"
       >
-        <Link to="join" margin="0 auto">
-          <Button
-            size="lg"
-            fontWeight="bold"
-            fontSize="sm"
-            colorScheme={'blue'}
-            textTransform="uppercase"
-          >
-            Join the Club Online
-          </Button>
-        </Link>
-      </Hero>
-      <About />
-      <Events />
-      <Apod />
-    </Page>
+        <Hero heading={home.heading} text={home.description} alert={alert}>
+          <Link to="join" margin="0 auto">
+            <Button
+              size="lg"
+              fontWeight="bold"
+              fontSize="sm"
+              colorScheme={'blue'}
+              textTransform="uppercase"
+            >
+              Join the Club Online
+            </Button>
+          </Link>
+        </Hero>
+        <About about={about} />
+        <Events clubMeeting={clubMeeting} />
+      </Page>
+    )
   );
 };

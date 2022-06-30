@@ -1,19 +1,16 @@
 import React from 'react';
 import { Card } from '../../UI/Card';
-import { Box, Flex, Heading } from '@chakra-ui/react';
-import { cards } from './aboutCards';
+import { Box, Flex, Heading, Spinner } from '@chakra-ui/react';
 import { Segment } from '../../UI/Segment';
+import { FaUserAstronaut, FaRocket, FaCloudMoon } from 'react-icons/fa';
 
-export const About = props => {
-  return (
-    <Segment
-      id="about"
-      className="postTop"
-      as="section"
-      m={{ base: 4, md: 12, lg: 24 }}
-    >
+export const About = ({ about }) => {
+  return !about ? (
+    <Spinner />
+  ) : (
+    <Segment id="about" className="postTop" as="section">
       <Heading size="lg" p="2">
-        Who We Are
+        {about.title}
       </Heading>
       <Flex
         flexDirection={{ md: 'row', lg: 'row' }}
@@ -26,11 +23,19 @@ export const About = props => {
         borderColor="gray.800"
         bgColor="gray.900"
       >
-        {cards.map((card, index) => (
+        {about.aboutCard.map((card, index) => (
           <Box key={index} maxW={{ base: 'full', md: '30%' }}>
             <Card
               heading={card.heading}
-              icon={card.icon}
+              icon={
+                index === 0
+                  ? FaUserAstronaut
+                  : index === 1
+                  ? FaRocket
+                  : index === 2
+                  ? FaCloudMoon
+                  : ''
+              }
               text={card.text}
               bgColor="gray.900"
             />

@@ -18,7 +18,7 @@ export const Apod = () => {
   useEffect(() => {
     axios
       .get(
-        'https://api.nasa.gov/planetary/apod?api_key=71PgF4a1No2KkLNAdXotutwLCTPbZ4NgJ8PpEhC1'
+        `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA}`
       )
       .then(response => setApod(response));
   }, []);

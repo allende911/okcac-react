@@ -4,14 +4,9 @@ import { NSNevents } from './NSNevents';
 import { Segment } from '../../UI/Segment';
 import { Box, Divider, Heading, Spinner } from '@chakra-ui/react';
 
-export const Events = () => {
+export const Events = ({ clubMeeting }) => {
   return (
-    <Segment
-      id="events"
-      as="section"
-      m={{ base: 4, md: 12, lg: 24 }}
-      textAlign="left"
-    >
+    <Segment id="events" as="section" textAlign="left">
       <Heading size="lg" p="2">
         Upcoming Events
       </Heading>
@@ -22,7 +17,7 @@ export const Events = () => {
         borderColor="gray.800"
         bgColor="gray.900"
       >
-        <ClubMeeting />
+        <ClubMeeting clubMeeting={clubMeeting} />
         <Divider />
         <Box>
           {!NSNevents && (

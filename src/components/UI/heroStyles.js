@@ -7,9 +7,10 @@ export const heroStack = {
 
 export const heroHeader = {
   fontWeight: 'bold',
-  fontSize: ['4xl', '5xl', '6xl'],
+  fontSize: ['4xl', '5xl', '7xl'],
   width: ['full', 'full', '1/4'],
-  mt: [2, 4, 8],
+  mt: [4, 6, 10],
+  letterSpacing: '-2px',
   pb: [2, 4, 4],
 };
 
