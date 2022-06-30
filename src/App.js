@@ -5,10 +5,10 @@ import { AlertMessage } from './components/pages/sections/AlertMessage';
 
 const baseUrl = process.env.REACT_APP_STRAPI;
 const sections = [
-  'api/about-us?populate=*',
-  'api/alert',
-  'api/home?populate=*',
-  'api/club-meeting',
+  '/api/about-us?populate=*',
+  '/api/alert',
+  '/api/home?populate=*',
+  '/api/club-meeting',
 ];
 
 function App() {

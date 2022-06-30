@@ -14,7 +14,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { coValidate } from '../../../utils/validate';
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE}`);
-const react = process.env.REACT_APP_REACT;
+const baseUrl = process.env.REACT_APP_REACT;
 const basePrice = 100;
 
 export const Signup = () => {
@@ -28,13 +28,13 @@ export const Signup = () => {
           customerEmail: values.email,
           lineItems: [
             {
-              price: 'price_1L05y7Ff9B6igBMjvex7ou91',
+              price: 'price_1KxCQIFf9B6igBMjMoQSpQLs',
               quantity: values.quantity,
             },
           ],
           mode: 'payment',
-          successUrl: `${react}/otsp/imaging/register/success`,
-          cancelUrl: `${react}/otsp/imaging/register/error`,
+          successUrl: `https://okcastroclub.org/otsp/imaging/register/success`,
+          cancelUrl: `https://okcastroclub.org/otsp/imaging/register/error`,
         })
         .then(response => console.log(response.error))
         .catch(error => console.log(error));
