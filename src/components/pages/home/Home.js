@@ -12,7 +12,7 @@ export const Home = ({ about, alert, baseUrl, clubMeeting, home }) => {
       <Page
         id="home"
         background={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
-      url(${baseUrl}${home.backgroundImage.data.attributes.url})`}
+      url('./bg.jpg')`}
         backgroundAttachment="fixed"
         backgroundSize="cover"
         backgroundPosition="center right fixed"
