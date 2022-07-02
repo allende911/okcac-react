@@ -18,9 +18,9 @@ export const NSNevents = () => {
       alt: 'Club Meeting at SMO',
     },
     {
-      eventName: 'Space Day at Science Museum Oklahoma',
-      photo: 'smo-outreach.jpg',
-      alt: 'Space Day at SMO',
+      eventName: 'Quarterly Novice Session',
+      photo: 'novice-session.jpg',
+      alt: 'OKCAC Novice Session',
     },
     {
       eventName: 'OKCAC Executive Board Meeting',
@@ -32,7 +32,7 @@ export const NSNevents = () => {
   useEffect(() => {
     axios
       .get(
-        `${process.env.REACT_APP_NSN}https://nightsky.jpl.nasa.gov/js/data/events_json_api.cfm?&Club_ID=877&IncludeRN=1`
+        `${process.env.REACT_APP_NSN}/https://nightsky.jpl.nasa.gov/js/data/events_json_api.cfm?&Club_ID=877&IncludeRN=1`
       )
       .then(response => setEvents(response.data.events));
   }, []);
@@ -47,16 +47,20 @@ export const NSNevents = () => {
   };
 
   return !events ? (
-    <Flex align="center" justify="center" bgColor="gray.900">
+    <Flex align="center" justify="center" bgColor="gray.900" my={12}>
       <Heading size="lg">Fetching events from the Night Sky Network</Heading>
       <Spinner size="lg" />
     </Flex>
   ) : (
     <>
       <Flex
-        flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
-        justifyContent={{ base: 'space-evenly', lg: 'flex-start' }}
-        alignItems={{ base: 'center', md: 'stretch' }}
+        flexDirection={{ md: 'row', lg: 'row' }}
+        flexWrap="wrap"
+        justifyContent="space-around"
+        alignSelf="stretch"
+        borderRadius="lg"
+        borderColor="gray.800"
+        bgColor="gray.900"
       >
         {events
           .filter(
@@ -67,7 +71,7 @@ export const NSNevents = () => {
           .map(
             (event, index) =>
               index < 6 && (
-                <Box key={index} color="white">
+                <Box key={index}>
                   {eventImages
                     .filter(image => image.eventName === event.title)
                     .map((meta, index) => (
