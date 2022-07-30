@@ -7,6 +7,10 @@ const tempButtons = [
   { name: 'About', linkTo: '#about' },
   { name: 'Contact', linkTo: 'mailto:info@okcastroclub.com' },
   { name: 'Events', linkTo: '#events' },
+  {
+    name: 'Merch',
+    linkTo: 'https://www.redbubble.com/people/OKCAstroClub/shop',
+  },
   { name: 'Forum', linkTo: 'http://okcastroclub.com/phpBB2/index.php' },
 ];
 
